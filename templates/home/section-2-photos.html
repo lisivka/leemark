@@ -1,0 +1,23 @@
+{% load static %}
+
+<section class="row align-items-stretch photos" id="section-photos">
+    <div class="col-lg-12">
+        <div class="row align-items-stretch">
+        {% for post in posts %}
+            <td>{{ post.title }}</td>
+            <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+              <a href="/media/{{ post.photo }}" class="d-block photo-item" data-fancybox="gallery">
+                <img src="/media/{{ post.photo }}" alt="Image" class="img-fluid">
+                <div class="photo-text-more">
+                  <span class="icon icon-search"></span>
+                </div>
+              </a>
+            </div>
+        {% endfor %}
+        </div>
+
+
+    </div>
+
+
+</section> <!-- #section-photos -->

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+{% include 'layouts/head.html' %}
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200">
+  <div class="site-wrap">
+
+    {% include 'accounts/header_accounts.html' %}
+
+    <main class="main-content">
+
+        {% block content %}{% endblock content %}
+        {% include 'layouts/footer.html' %}
+    </main>
+
+  </div> <!-- .site-wrap -->
+
+  {% include 'layouts/footer_js.html' %}
+
+    
+</body>
+</html>

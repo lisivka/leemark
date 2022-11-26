@@ -1,0 +1,21 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block title %}
+    Главная
+{% endblock title %}
+
+
+{% block content %}
+        {#================================================================#}
+        {% include 'home/section-1-welcome.html' %}
+        <div class="container-fluid">
+        {#================================================================#}
+            {% include 'home/section-2-photos.html' %}
+            {% include 'home/section-3-testimonial.html' %}
+            {% include 'home/section-4-bio.html' %}
+{#            {% include 'home/section-5-blog.html' %}#}
+            {% include 'home/section-6-contact.html' %}
+
+        </div>
+{% endblock content %}

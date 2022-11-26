@@ -1,0 +1,71 @@
+{% load static %}
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+              <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+              </div>
+        </div>
+        <div class="site-mobile-menu-body">
+
+        </div>
+    </div>
+
+
+<header class="header-bar d-flex d-lg-block align-items-center site-navbar-target" data-aos="fade-right">
+    <div class="site-logo">
+      <a href="home/index">S.Lee Mark</a>
+    </div>
+
+    <div class="d-inline-block d-lg-none ml-md-0 ml-auto py-3" style="position: relative; top: 3px;">
+        <a href="#" class="site-menu-toggle js-menu-toggle text-white">
+            <span class="icon-menu h3">
+
+            </span>
+        </a>
+    </div>
+
+    <div class="main-menu">
+        <ul class="js-clone-nav">
+            <li><a href="/home/#section-home" class="nav-link">Home</a></li>
+            <li><a href="/home/#section-photos" class="nav-link">Art work</a></li>
+            <li><a href="/home/#section-bio" class="nav-link">Biography</a></li>
+{#            <li><a href="/home/#section-blog" class="nav-link">Blog</a></li>#}
+
+            <li><a href="/home/#section-contact" class="nav-link">Contact</a></li>
+            <p></p>
+            <li><a href="/blog" class="nav-link">Blog</a></li>
+        </ul>
+
+        <ul class="js-clone-nav">
+
+                {% if user.is_authenticated %}
+                    <li> USER: {{ user.username }}</li>
+                {% else %}
+                    <li> USER:Guest </li>
+                    <li> <a href="/accounts/sign_in" class="nav-link">Sign in</a></li>
+                {% endif %}
+
+
+                {%  if not user.is_authenticated %}
+                    <li><a class="nav-link" href="/accounts/sign_up">Sign Up</a></li>
+                {% else %}
+                    <li><a class="nav-link" href="/accounts/sign_out">EXIT</a></li>
+                    <li><a class="nav-link" href="/accounts/profile">Profile</a></li>
+                {% endif %}
+
+                {%  if user.username == 'admin' or user.username == 'admin1'   %}
+                    <li><a href="/goods/" >Galery-CRUD</a></li>
+                    <p>-----------</p>
+                    <li><a target="_blank" href="/admin/auth/" >User</a></li>
+                    <li><a target="_blank" href="/admin/goods/" >Goods</a></li>
+                {% endif %}
+        </ul>
+
+        <ul class="social js-clone-nav">
+            <li><a target="_blank" href="https://www.facebook.com/leemark.art/"><span class="icon-facebook"></span></a></li>
+            <li><a target="_blank" href=""><span class="icon-twitter"></span></a></li>
+            <li><a target="_blank" href="https://www.instagram.com/lee.mark_art/"><span class="icon-instagram"></span></a></li>
+        </ul>
+    </div>
+  </header>

@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+
+{% block content %}
+<div id="content" class="container">
+    <h2>{{ title }}</h2>
+    <hr>
+    <div>
+        <img src="/media/{{ post.photo }}" width="30%" align="left" style="margin-right: 50px">
+        <h3>{{ post.name }}</h3>
+        <h5>
+            {{ post.published }} => {{ post.author }}
+        </h5>
+        <h4>{{ post.description }}</h4>
+        <div style="clear: left"></div>
+        <a href="/goods">Go to back</a>
+    </div>
+    <hr>
+</div>
+{% endblock content %}

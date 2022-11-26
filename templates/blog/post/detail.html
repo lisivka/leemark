@@ -1,0 +1,55 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  <h3>{{ post.title }}</h3>
+
+  <p class="date">
+    Published {{ post.publish }} by {{ post.author }}
+  </p>
+  <h4> {{ post.body|linebreaks }} </h4>
+  <p>
+    <a href="{% url "blog:post_share" post.id %}">
+      Share this post
+    </a>
+
+  </p>
+    <p>--------------------------------------</p>
+  <h4>Similar posts</h4>
+  {% for post in similar_posts %}
+    <p>
+      <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+    </p>
+  {% empty %}
+    There are no similar posts yet.
+  {% endfor %}
+
+  {% with comments.count as total_comments %}
+    <h4>
+      {{ total_comments }} comment{{ total_comments|pluralize }}
+    </h4>
+  {% endwith %}
+  {% for comment in comments %}
+    <div class="comment">
+       <a href=""><p class="info">
+        Comment {{ forloop.counter }} by {{ comment.name }}
+        {{ comment.created }}
+      </p></a>
+       <h6> {{ comment.body|linebreaks }} </h6>
+    </div>
+  {% empty %}
+    <p>There are no comments yet.</p>
+  {% endfor %}
+
+  {% if new_comment %}
+    <h4>Your comment has been added.</h4>
+  {% else %}
+    <h4>Add a new comment</h4>
+    <form action="" method="post">
+      <h6>{{ comment_form.as_p }}</h6>
+      {% csrf_token %}
+      <p><input type="submit" value="Add comment"></p>
+    </form>
+  {% endif %}
+{% endblock %}
