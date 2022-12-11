@@ -17,10 +17,8 @@
             <br>genre {{ post.genre }}
             <br>status {{ post.status }}
             <br>media {{ post.media }}
-
-             <br>Description: {{ post.description }}
+            <br>Description: {{ post.description }}
             <br>
-
 
             <td>{% if user.username == 'admin' or user.username == 'admin1' %}
                     <br><a href="/goods/edit/{{ post.id }}"> Edit </a>
