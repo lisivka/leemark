@@ -74,7 +74,6 @@ def edit(request, post_id):
             post.weight = form2.cleaned_data['weight']
             post.height = form2.cleaned_data['height']
             post.buy_url = form2.cleaned_data['buy_url']
-
             post.save()
             # update ?
         return redirect('/goods')

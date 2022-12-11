@@ -34,6 +34,7 @@ class Product(models.Model):
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
     status = models.ForeignKey(Status, on_delete=models.CASCADE)
     media = models.ForeignKey(Media, on_delete=models.CASCADE)
+
     published = models.DateTimeField(null=False,  default=strftime('%Y-%m-%d %H:%M:%S'))
 
     def __str__(self):

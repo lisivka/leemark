@@ -20,6 +20,7 @@
             <br>Description: {{ post.description }}
             <br>
 
+
             <td>{% if user.username == 'admin' or user.username == 'admin1' %}
                     <br><a href="/goods/edit/{{ post.id }}"> Edit </a>
                     <a href="/goods/delete/{{ post.id }}"> Delete</a>
