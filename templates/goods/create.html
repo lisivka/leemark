@@ -8,25 +8,30 @@
     <h2>{{ title }}</h2>
     <hr>
     <div style="text-align: left">
+        {#№1 method="post" enctype="multipart/form-data" для загрузки файлов #}
         <form method="post" action="/goods/create" enctype="multipart/form-data">
+
+            {#  csrf_token Обязательно для безопасности!!! #}
             {% csrf_token %}
             <div id="form_template">
                 {% for field in form %}
                     <div class="form-group">
-                        {{ field.label_tag }}
-                        <div>{{ field }}</div>
+                        {{ field }} {{ field.label_tag }}
+<!--                        <div>{{ field }}</div>-->
                     </div>
                 {% endfor %}
             </div>
             <p style="margin-top: 20px">
                 <input id="b1" type="submit" value="Отправить" class="btn btn-success">
-                <input id="b2" type="reset" value="Очистить" class="btn btn-success">
+                <input id="b2" type="reset" value="Очистить" class="btn btn-warning">
             </p>
         </form>
     </div>
     <a href="/goods">Go to back</a>
     <hr>
 </div>
+
+{# стилизация формы input - формы ввода, textarea - многострочные поля, #b1, #b2 - кнопки по id  #}
 <style>
     .form-group input {
         width: 50%;
@@ -36,7 +41,7 @@
         width: 50%;
     }
     #b1, #b2 {
-        width: 150px;
+        width: 130px;
     }
 </style>
 {% endblock content %}

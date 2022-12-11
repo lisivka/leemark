@@ -20,7 +20,7 @@ def index(request):
 def create(request):
     data = dict()
     data['title'] = 'Add Artwork'
-    if request.method == 'GET':
+    if request.method == 'GET': # заходим на страницу в первый раз - поля пустые
         # Блокировка доступа через адресную строку
         # =======================
         if request.user.username == 'admin' or request.user.username == 'admin1':
@@ -31,7 +31,7 @@ def create(request):
             return redirect('/accounts/sign_in')
         # =======================
 
-    elif request.method == 'POST':
+    elif request.method == 'POST': # нажата кнопка отправить, мы перехватываем форму
         filled_form = PostForm(request.POST, request.FILES)
         filled_form.save()
         return redirect('/goods')

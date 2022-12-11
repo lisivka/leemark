@@ -10,15 +10,21 @@
     <div>
         <img src="/media/{{ post.photo }}" width="30%" align="left" style="margin-right: 50px">
         <h3>Name: {{ post.name }}</h3>
-        <h5>Published: {{ post.published }} => post.author {{ post.author }}
+        <h5>Published: {{ post.published }}
             <br>Buy URL: <a href="{{ post.buy_url }}"  target="_blank" > {{ post.buy_url }} </a>
-            <br>Description: {{ post.description }}
-            <br>
+            <br>weight {{ post.weight }}
+            <br>height {{ post.height }}
+            <br>genre {{ post.genre }}
+            <br>status {{ post.status }}
+            <br>media {{ post.media }}
+
+             <br>Description: {{ post.description }}
             <br>
 
+
             <td>{% if user.username == 'admin' or user.username == 'admin1' %}
-                    <a href="/goods/edit/{{ post.id }}">Edit</a>
-                    <a href="/goods/delete/{{ post.id }}">Delete</a>
+                    <br><a href="/goods/edit/{{ post.id }}"> Edit </a>
+                    <a href="/goods/delete/{{ post.id }}"> Delete</a>
                 {% endif %}
             </td>
             <br> <a href="/goods">Go to back</a></hr>
