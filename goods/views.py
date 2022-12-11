@@ -76,7 +76,7 @@ def edit(request, post_id):
             post.buy_url = form2.cleaned_data['buy_url']
             post.save()
             # update ?
-        return redirect('/goods')
+        return redirect('/goods/details/'+str(post.id))
 
 
 def delete(request, post_id):
