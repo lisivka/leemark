@@ -15,7 +15,8 @@
         {% csrf_token %}
         <input type="submit" value="Удалить  " class="btn btn-secondary" style="width: 200px">
     </form>
-    <a href="/goods">Go to back</a>
+    <br><a href="/goods">Go to gallery</a>
+    <br><a href="/goods/details/{{ post.id }}">Go to details</a>
     <hr>
 </div>
 {% endblock content %}
